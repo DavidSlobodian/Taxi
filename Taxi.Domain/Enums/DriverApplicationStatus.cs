@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Taxi.Infrastructure
+namespace Taxi.Domain.Enums
 {
-    internal class DependencyInjection
+    public enum DriverApplicationStatus
     {
+        Pending,
+        Approved,
+        Rejected
     }
 }

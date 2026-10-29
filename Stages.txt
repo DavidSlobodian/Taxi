@@ -1,0 +1,132 @@
+﻿STAGES
+
+1. Foundation
+2. Authentication
+
+3. Basic Ride 
+Create Ride
+Get Ride
+Cancel Ride
+Ride History
+
+4. Driver
+Go Online
+Go Offline
+Update Location
+Accept Ride
+Arrived
+Start
+Complete
+
+5. Pricing
+Distance
+Duration
+Category
+Base fare
+Surge
+ 
+6. Driver Matching
+Passenger
+ ↓
+Ride Request
+ ↓
+Find drivers
+ ↓
+Rank drivers
+ ↓
+Offer
+ ↓
+Accept / Reject / Timeout
+
+7. Redis
+Driver locations
+Caching
+Distributed locks
+
+8. SignalR
+Driver location
+Ride status
+Driver assignment
+
+9. RabbitMQ
+RideCreated
+DriverAssigned
+RideStarted
+RideCompleted
+RideCancelled
+
+10. Payments
+Payment
+Wallet
+Commission
+Transactions
+
+11. Testing
+Unit
+Integration
+Concurrency
+
+12. Monitoring
+Serilog
+Health checks
+OpenTelemetry
+Metrics
+
+DEFINITION OF DONE
+1. Passenger registers
+             ↓
+2. Driver registers
+             ↓
+3. Admin approves driver
+             ↓
+4. Driver adds vehicle
+             ↓
+5. Driver goes online
+             ↓
+6. Driver sends location
+             ↓
+7. Passenger creates ride
+             ↓
+8. System calculates price
+             ↓
+9. System finds nearby driver
+             ↓
+10. Driver receives offer
+             ↓
+11. Driver accepts
+             ↓
+12. Passenger receives realtime update
+             ↓
+13. Driver arrives
+             ↓
+14. Passenger gets in
+             ↓
+15. Ride starts
+             ↓
+16. Driver moves
+             ↓
+17. Passenger sees location
+             ↓
+18. Driver completes ride
+             ↓
+19. Payment processed
+             ↓
+20. Driver wallet updated
+             ↓
+21. Passenger rates driver
+             ↓
+22. Ride appears in history
+
+"dc5fca1b-dc10-404d-8e50-35cf3741be98" - applic
+ab054bd0-9039-4754-8b68-a7db8756427e - vehicle
+
+Якщо апрувнути заявку, потім видалити машину і ше раз апрувнути цю ж заявку, авто додасться. Ніби баг, а ніби і функція Restore
+При edit перевірка чи дані не ті самі
+
+7fc3a63c-09bf-459f-88c6-5daf2e0081a3
+06f4d668-99b6-4ed1-bd7c-29bded6377f3
+
+До reject додати шаблонні причини
+До заявок GetAll
+
+Driver - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImNkZjQ0MjA2LTJiYTQtNDFhNy04MGQxLTczOThjYjE4NDgxNCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJkYXZpZHNsMTIwOEBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJEcml2ZXIiLCJuYmYiOjE3OTE4MzkwNzgsImV4cCI6MTc5MTg0OTA3OCwiaXNzIjoiQ0VPIiwiYXVkIjoiVGVhbSJ9.O0BhVZ7f3lnNV1TI9v0ICKpUHiWp2Si5KczJnveUAt8
