@@ -17,6 +17,10 @@ Taxi API is designed to handle the main processes of a taxi service:
 - Administrative operations and monitoring.
 
 The project follows a layered architecture to separate business logic, data access, domain entities, and API endpoints.
+AI Functions in the project:
+- Idea creation
+- Technical support
+- Task separation
 
 ## Tech Stack
 
