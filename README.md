@@ -227,6 +227,8 @@ This project was developed to practice and demonstrate backend development skill
 - Handling exceptions and API responses consistently.
 - Working with asynchronous operations and background processes.
 
+- ## Complaints functionality will be added later.
+
 ---
 
 **Taxi API** — a backend project focused on building a scalable taxi booking system with .NET 8.
