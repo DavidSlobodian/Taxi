@@ -109,27 +109,30 @@ Taxi/
 - Tracking important ride lifecycle timestamps.
 - Passenger and driver-specific ride operations.
 
-### 4. Driver Matching System
+### 4. Price Calculation
+- Price varies depending on weather conditions, fuel price and distance
+
+### 5. Driver Matching System
 - Redis GEO-based driver location storage.
 - Searching for nearby available drivers.
 - Progressive search radius expansion.
 - Preventing repeated ride offers to the same driver.
 - Real-time ride offers through SignalR.
 
-### 5. Real-time Communication
+### 6. Real-time Communication
 - SignalR-based communication.
 - Sending ride offers to drivers.
 - Updating ride-related information in real time.
 - Supporting real-time interactions between the API and connected clients.
 
-### 6. Ratings & Reviews
+### 7. Ratings & Reviews
 - Passengers can rate drivers.
 - Drivers can rate passengers.
 - Ratings are associated with completed rides.
 - Rating scores, tags, and comments.
 - Preventing duplicate ratings from the same participant for one ride.
 
-### 7. Administration
+### 8. Administration
 - Driver and ride management.
 - Ride monitoring.
 - Complaint management.
