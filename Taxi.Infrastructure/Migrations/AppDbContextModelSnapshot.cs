@@ -179,7 +179,7 @@ namespace Taxi.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("10000000-0000-0000-0000-000000000001"),
-                            CreatedAt = new DateTime(2026, 10, 27, 18, 59, 12, 595, DateTimeKind.Utc).AddTicks(2513),
+                            CreatedAt = new DateTime(2026, 10, 31, 13, 50, 34, 425, DateTimeKind.Utc).AddTicks(9768),
                             TotalComplaints = 0,
                             TotalEarnedFromComission = 0.0,
                             TotalRides = 0,
@@ -217,7 +217,7 @@ namespace Taxi.Infrastructure.Migrations
                             Id = new Guid("10000000-0000-0000-0000-000000000001"),
                             AverageFuelCons = 9.0,
                             AverageFuelPrice = 94.5,
-                            CreatedAt = new DateTime(2026, 10, 27, 18, 59, 12, 595, DateTimeKind.Utc).AddTicks(2670)
+                            CreatedAt = new DateTime(2026, 10, 31, 13, 50, 34, 425, DateTimeKind.Utc).AddTicks(9928)
                         });
                 });
 
@@ -281,7 +281,7 @@ namespace Taxi.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("DestinationAltitude")
+                    b.Property<double>("DestinationLatitude")
                         .HasColumnType("float");
 
                     b.Property<double>("DestinationLongtitude")
@@ -306,7 +306,7 @@ namespace Taxi.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("PickupAltitude")
+                    b.Property<double>("PickupLatitude")
                         .HasColumnType("float");
 
                     b.Property<double>("PickupLongtitude")
@@ -386,7 +386,7 @@ namespace Taxi.Infrastructure.Migrations
                             BaseFare = 40.0,
                             BasePricePerKm = 0.0,
                             Class = 0,
-                            CreatedAt = new DateTime(2026, 10, 27, 18, 59, 12, 595, DateTimeKind.Utc).AddTicks(2641),
+                            CreatedAt = new DateTime(2026, 10, 31, 13, 50, 34, 425, DateTimeKind.Utc).AddTicks(9902),
                             WaitingPricePerMin = 3.0
                         },
                         new
@@ -395,7 +395,7 @@ namespace Taxi.Infrastructure.Migrations
                             BaseFare = 50.0,
                             BasePricePerKm = 0.0,
                             Class = 1,
-                            CreatedAt = new DateTime(2026, 10, 27, 18, 59, 12, 595, DateTimeKind.Utc).AddTicks(2644),
+                            CreatedAt = new DateTime(2026, 10, 31, 13, 50, 34, 425, DateTimeKind.Utc).AddTicks(9905),
                             WaitingPricePerMin = 4.0
                         },
                         new
@@ -404,7 +404,7 @@ namespace Taxi.Infrastructure.Migrations
                             BaseFare = 70.0,
                             BasePricePerKm = 0.0,
                             Class = 2,
-                            CreatedAt = new DateTime(2026, 10, 27, 18, 59, 12, 595, DateTimeKind.Utc).AddTicks(2645),
+                            CreatedAt = new DateTime(2026, 10, 31, 13, 50, 34, 425, DateTimeKind.Utc).AddTicks(9907),
                             WaitingPricePerMin = 5.0
                         },
                         new
@@ -413,7 +413,7 @@ namespace Taxi.Infrastructure.Migrations
                             BaseFare = 100.0,
                             BasePricePerKm = 0.0,
                             Class = 3,
-                            CreatedAt = new DateTime(2026, 10, 27, 18, 59, 12, 595, DateTimeKind.Utc).AddTicks(2646),
+                            CreatedAt = new DateTime(2026, 10, 31, 13, 50, 34, 425, DateTimeKind.Utc).AddTicks(9908),
                             WaitingPricePerMin = 8.0
                         },
                         new
@@ -422,7 +422,7 @@ namespace Taxi.Infrastructure.Migrations
                             BaseFare = 90.0,
                             BasePricePerKm = 0.0,
                             Class = 4,
-                            CreatedAt = new DateTime(2026, 10, 27, 18, 59, 12, 595, DateTimeKind.Utc).AddTicks(2647),
+                            CreatedAt = new DateTime(2026, 10, 31, 13, 50, 34, 425, DateTimeKind.Utc).AddTicks(9909),
                             WaitingPricePerMin = 6.0
                         });
                 });

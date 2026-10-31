@@ -92,9 +92,7 @@ namespace Taxi.Infrastructure.Repos.RideMatchingRepository
             await transaction.CommitAsync();
             return true;
         }
-        public async Task<List<Guid>> GetDueRideIds(
-    DateTime nowUtc,
-    int batchSize = 100)
+        public async Task<List<Guid>> GetDueRideIds(DateTime nowUtc, int batchSize = 100)
         {
             return await _dbContext.Rides
                 .AsNoTracking()
