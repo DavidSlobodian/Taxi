@@ -13,7 +13,7 @@ namespace Taxi.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Policy = "AccountCheck")]
     public class RatingController : ControllerBase
     {
         private readonly IRatingService _ratingService;

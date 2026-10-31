@@ -15,9 +15,9 @@ namespace Taxi.Domain.Entities
         public Driver? Driver { get; set; }
         public Guid? VehicleId {  get; set; }
         public Vehicle? Vehicle;
-        public double PickupAltitude {  get; set; }
+        public double PickupLatitude {  get; set; }
         public double PickupLongtitude {  get; set; }
-        public double DestinationAltitude {  get; set; }
+        public double DestinationLatitude {  get; set; }
         public double DestinationLongtitude { get; set; }
         public double Distance {  get; set; }
         public double PricePerKm {  get; set; } 

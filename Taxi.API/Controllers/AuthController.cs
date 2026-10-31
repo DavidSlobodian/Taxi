@@ -7,6 +7,7 @@ using Taxi.Domain.Responses;
 using Taxi.Domain.Exceptions;
 using Taxi.API.Responses.ExceptionResponses;
 using Taxi.App.DTOs.OutputDTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Taxi.API.Controllers
 {
@@ -25,6 +26,7 @@ namespace Taxi.API.Controllers
         }
 
         [HttpPost("signup")]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(ApiResponse<Guid>), 200)]
         [ProducesResponseType(typeof(ForbiddenExcResponse), 403)]
         public async Task<IActionResult> SignUpAsync(RegistrationDto user)
@@ -39,9 +41,10 @@ namespace Taxi.API.Controllers
             return Ok(ApiResponse<Guid>.Ok(await _authService.SignUp(user)));
         }
         [HttpPost("signin")]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(ApiResponse<string>), 200)]
         [ProducesResponseType(typeof(NotFoundExcResponse), 404)]
-        [ProducesResponseType(typeof(UnauthorizedException), 401)]
+        [ProducesResponseType(typeof(UnauthorizedExcResponse), 401)]
         public async Task<IActionResult> SignInAsync(LoginDto user)
         {
             var validationResult = await _loginValid.ValidateAsync(user);

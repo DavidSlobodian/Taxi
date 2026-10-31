@@ -1,6 +1,7 @@
 
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -8,6 +9,7 @@ using StackExchange.Redis;
 using System.Text;
 using System.Text.Json.Serialization;
 using Taxi.Api.Middleware;
+using Taxi.API.Authorization;
 using Taxi.App.Services.AdminService;
 using Taxi.App.Services.AuthService;
 using Taxi.App.Services.ComplaintService;
@@ -36,7 +38,6 @@ using Taxi.Infrastructure.Repos.RideMatchingRepos;
 using Taxi.Infrastructure.Repos.RideMatchingRepository;
 using Taxi.Infrastructure.Services.PasswordHasher;
 using Taxi.Infrastructure.Services.TokenGenerator;
-using Taxi.Infrastructure.Services.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -85,12 +86,25 @@ builder.Services.AddControllers()
             new JsonStringEnumConverter());
     });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AccountCheck", policy =>
+    {
+        policy.RequireAuthenticatedUser();
+        policy.AddRequirements(new AccountBlockRequirement());
+    });
+
+    options.DefaultPolicy = options.GetPolicy("AccountCheck")!;
+    options.FallbackPolicy = options.GetPolicy("AccountCheck");
+});
+
+builder.Services.AddScoped<IAuthorizationHandler, AccountBlockHandler>();
+
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IStringHasher, StringHasher>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 builder.Services.AddScoped<IDriverApplicationService, DriverApplicationService>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IVehicleApplicationService, VehicleApplicationService>();
 builder.Services.AddScoped<IVehicleManageService, VehicleManageService>();
 builder.Services.AddScoped<IDriverStatusService, DriverStatusService>();
@@ -160,6 +174,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -172,6 +188,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseMiddleware<ApiExceptionMiddleware>();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

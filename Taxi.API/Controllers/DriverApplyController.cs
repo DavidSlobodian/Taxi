@@ -16,7 +16,7 @@ namespace Taxi.API.Controllers
 {
     [Route("api/driver-applications")]
     [ApiController]
-    [Authorize]
+    [Authorize(Policy = "AccountCheck")]
     public class DriverApplyController : ControllerBase
     {
         private readonly DriverApplicationValidator _driverValid;

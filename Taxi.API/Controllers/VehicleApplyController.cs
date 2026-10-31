@@ -16,6 +16,7 @@ namespace Taxi.API.Controllers
 {
     [Route("api/vehicle-apply")]
     [ApiController]
+    [Authorize(Policy = "AccountCheck")]
     public class VehicleApplyController : ControllerBase
     {
         private readonly VehicleValidator _validator;

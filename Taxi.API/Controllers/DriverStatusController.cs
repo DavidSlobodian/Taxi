@@ -11,7 +11,7 @@ using Taxi.Domain.Responses;
 namespace Taxi.API.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize(Roles = "Driver")]
+    [Authorize(Policy = "AccountCheck", Roles = "Driver")]
     [ApiController]
     public class DriverStatusController : ControllerBase
     {

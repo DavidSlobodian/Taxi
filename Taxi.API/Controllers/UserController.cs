@@ -18,7 +18,7 @@ namespace Taxi.API.Controllers
             _paymentService = paymentService;
         }
 
-        [Authorize(Roles = "Passenger")]
+        [Authorize(Policy = "AccountCheck", Roles = "Passenger")]
         [HttpPut("add-balance/{amount}")]
         [ProducesResponseType(typeof(DataSavingExcResponse), 500)]
         public async Task<IActionResult> AddBalance(double amount)

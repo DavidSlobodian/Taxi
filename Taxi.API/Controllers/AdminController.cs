@@ -36,6 +36,14 @@ namespace Taxi.API.Controllers
             var result = await _adminService.GetDashboard(dateFrom, dateTo);
             return Ok(ApiResponse<DashboardDTO>.Ok(result));
         }
+        [HttpGet("user/{id}")]
+        [ProducesResponseType(typeof(ApiResponse<UserInfoDTO>), 200)]
+        [ProducesResponseType(typeof(NotFoundExcResponse), 404)]
+        public async Task<IActionResult> GetUserById(Guid id)
+        {
+            var result = await _adminService.GetUserById(id);
+            return Ok(ApiResponse<UserInfoDTO>.Ok(result));
+        }
         [HttpGet("users")]
         [ProducesResponseType(typeof(ApiResponse<List<UserInfoDTO>>), 200)]
         public async Task<ActionResult<List<UserInfoDTO>>> GetUsersByFilter([FromQuery] Guid? searchedUserId, [FromQuery] string? firstname, [FromQuery] string? lastname,
@@ -64,7 +72,7 @@ namespace Taxi.API.Controllers
             var adminId = GetUserIdFromClaims();
             if (adminId == null) return Unauthorized();
 
-            var result = await _adminService.BlockUser(userId, adminId.Value);
+            var result = await _adminService.BlockUser(adminId.Value, userId);
             return Ok(ApiResponse<BlockDTO>.Ok(result));
         }
 

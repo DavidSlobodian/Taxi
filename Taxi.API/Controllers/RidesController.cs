@@ -11,7 +11,7 @@ using Taxi.Domain.Responses;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
+[Authorize(Policy = "AccountCheck")]
 public class RidesController : ControllerBase
 {
     private readonly IRideService _rideService;
